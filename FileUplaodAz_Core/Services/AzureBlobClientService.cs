@@ -68,7 +68,12 @@ namespace FileUplaodAz_Core.Services
                 Url = blob_uri.ToString()
             };
         }
-
+        public async int delete(int? id)
+        {
+            if (id == null)return null;
+            _db.delete(id);
+            await DeleteBlob()
+        }
         //[HttpDelete(nameof(DeleteFile))]
         public async Task<bool> DeleteBlob(string path)
         {

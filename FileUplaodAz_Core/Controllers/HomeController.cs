@@ -27,11 +27,16 @@ namespace FileUplaodAz_Core.Controllers
         [HttpPost]
         public IActionResult Upload(IFormFile ufile)
         {
-            var status = _service.CheckFile(ufile);
+            var status = _service.CheckFile(ufile).Result;
             ViewBag.status = status;
             return View("Index");
         }
 
+        public IActionResult Delete(int? id)
+        {
+            _service.DeleteBlob();
+            return;
+        }
         public IActionResult Privacy()
         {
             return View();
