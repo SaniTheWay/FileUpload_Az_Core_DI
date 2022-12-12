@@ -1,5 +1,8 @@
-﻿@{
+﻿<script src='https://www.google.com/recaptcha/api.js'></script>
+
+@{
     ViewBag.Title = "Home Page";
+    var clientKey = ViewBag.clientKey;
     var msg = ViewBag.status;
 }
 @if (msg == 201)
@@ -32,6 +35,7 @@
     <label>Select file to upload</label>
     <input type="file" id="myFile" name="ufile" runat="server" />
     <br />
+    <div class="g-recaptcha" data-sitekey="@clientKey"></div>
     <input type="submit" value="submit" class="btn-primary">
 }
 

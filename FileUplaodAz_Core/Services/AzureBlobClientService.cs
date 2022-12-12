@@ -19,6 +19,7 @@ namespace FileUplaodAz_Core.Services
         {
             _db = db;
         }
+
         public async Task<int> CheckFile(IFormFile ufile)
         { 
             if (ufile != null)
@@ -68,11 +69,11 @@ namespace FileUplaodAz_Core.Services
                 Url = blob_uri.ToString()
             };
         }
-        public async int delete(int? id)
+        public async void delete(int? id)
         {
-            if (id == null)return null;
-            _db.delete(id);
-            await DeleteBlob()
+            //if (id == null)return null;
+            //_db.delete(id);
+            //await DeleteBlob()
         }
         //[HttpDelete(nameof(DeleteFile))]
         public async Task<bool> DeleteBlob(string path)

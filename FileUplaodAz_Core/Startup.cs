@@ -31,6 +31,10 @@ namespace FileUplaodAz_Core
             //services.AddDbContext<azblobstorageContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
             services.AddScoped<IDbService, DbService>();
             services.AddScoped<IAzureBlobClientService,AzureBlobClientService>();
+            services.AddScoped<IRecaptchaService, RecaptchaService>();
+            services.AddSingleton<IConfiguration>(Configuration);
+            string clientKey = Configuration.GetSection("SecretKey:recaptchaClient")?.Value;
+            string serverKey = Configuration.GetSection("SecretKey:recaptchaClient")?.Value;
             services.AddControllersWithViews();
         }
 

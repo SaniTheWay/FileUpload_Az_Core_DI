@@ -7,7 +7,7 @@ namespace FileUplaodAz_Core.Repository
     public interface IDbService
     {
         public void rEntry(BlobRecord blob);
-        public BlobRecord delete(int? id);
+        public string delete(int? id);
         public void Save();
     }
 }
